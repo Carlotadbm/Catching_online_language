@@ -23,7 +23,7 @@ app <- oauth_app(appname = "your_appname",
 endpoint <- oauth_endpoint(request = 'http://www.tumblr.com/oauth/request_token', 
                            authorize = 'http://www.tumblr.com/oauth/authorize', 
                            access = 'http://www.tumblr.com/oauth/access_token')
-#After runningthe next line  you will be asked if you want to use a local file: the easiest is to say no. 
+#After running the next line  you will be asked if you want to use a local file: the easiest is to say no. 
 #Type 2 in the console and run it by pressing enter
 sig <- sign_oauth1.0(app, 
                      token = "your_token",
