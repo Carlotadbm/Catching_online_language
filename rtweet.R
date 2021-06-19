@@ -24,16 +24,16 @@ token <- create_token(
 ##Search by word
 #Example: look for 100 tweets (max) with the word "youthquake", with no retweets
 #The result of the search will be saved as an object (a tibble) called youthquake
-youthquake <- search_tweets(q = "youthquake", n = 100, include_rts = FALSE) #Funciona
+youthquake <- search_tweets(q = "youthquake", n = 100, include_rts = FALSE)
 
 #Example: look for 1000 tweets (max) with the sequence "because reasons", with no retweets
 #Note the quotes!! Double quotes within single quotes allows you to search for exact sequences
 #The result of the search will be saved as an object (a tibble) called because
-because <- search_tweets(q = '"because reasons"', n = 1000, include_rts = FALSE) #Funciona
+because <- search_tweets(q = '"because reasons"', n = 1000, include_rts = FALSE)
 
 #Example: look for 1000 tweets (max) with the one of the following words: "latino", "latina", "latinx", with no retweets
 #The result of the search will be saved as an object (a tibble) called latinx
-latinx <- search_tweets(q = "latino OR latina OR latinx", n = 1000, include_rts = FALSE) #Funciona
+latinx <- search_tweets(q = "latino OR latina OR latinx", n = 1000, include_rts = FALSE)
 
 ##Search by language and word
 #Example: look for 1000 tweets (max) in English that have the word "latino" and appear in popular tweets 
