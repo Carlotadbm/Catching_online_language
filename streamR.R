@@ -36,7 +36,7 @@ load("my_oauth.Rdata")
 #and once you're there, clicking in More > Set as working directory
 
 
-##Search by coordinate and number of tweets
+##Search by coordinates and number of tweets
 #Establish coordinates: it's a coordinate box
 #2 latitudes and 2 longitudes, in a rectangle with the order 
 #left (Eastern longitude), bottom (Southern latitude), right (Western longitude), up (Northern latitude)
@@ -49,7 +49,7 @@ filterStream(file.name = "usa.json",
              locations = coord, 
              tweets = 10, 
              oauth = my_oauth)
-?filterStream
+
 ##Search by language during a period of time in a given area
 #Example:
 #Create a file called english.json with the tweets generated in English
