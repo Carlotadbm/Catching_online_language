@@ -65,12 +65,13 @@ potus_flotus <- get_timeline(user = c("POTUS", "FLOTUS"), n = 200)
 #Note: you can set the directory (folder) where you want to save these files 
 #by clicking in "Files" in the right bottom window, navigating to the desired folder
 #and once you're there, clicking in More > Set as working directory
-write_delim(summer, "summer.csv", delim = "\t")
+write_as_csv(summer, "summer.csv")
+
 
 #In order to check othe specifications of the functions used, you can run the name of the function
 #preceded by a question mark -  a help file will open at the bottom right window
 ?search_tweets()
 ?get_timeline()
-?search_tweets()
+
 
 
