@@ -28,7 +28,7 @@ users <- wa_df %>% #save it as users
 
 #Replace the information in column user by ID_user
 wa_df <- wa_df %>% #modify wa_df
-  full_join(wa_df2) %>% #join the users table to wa_df
+  full_join(users) %>% #join the users table to wa_df
   select(date, time, ID_user, text) #reorder columns and leave out the column with the original user names
 
 ##Write the end result as a csv delimited by tabs
