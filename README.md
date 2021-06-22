@@ -21,9 +21,11 @@ Libraries, on the contrary, must be loaded everytime you start a new session in 
 When you open swirl for the first time, it offers you some preloeaded courses (after asking for your name… every time, sorry about that). This course is not preloaded, so you’ll have to install it from Github. This is the code you’ll need (note that the package swirl needs to be loaded, because the install_course_github() function belongs to that package):
 
 `library(swirl)`
+
 `install_course_github(
   "Carlotadbm", 
   "Catching_online_language_swirl")`
+
 `swirl() #to begin`
 
 If you are unfamiliar with R, I absolutely recomment that you also try the preloaded cours "R Programming" course. Sometimes swirl doesn’t offer you the preloaded courses, maybe because it detected that you had installed another course and thinks you’re over them… I don’t know exactly why, but it happens. Anyway, you can easily install the R programming course from github too, with the following code:
