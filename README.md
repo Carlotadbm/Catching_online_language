@@ -28,6 +28,14 @@ When you open swirl for the first time, it offers you some preloeaded courses (a
 
 `swirl() #to begin`
 
+##### Trouble installing the swirl course?
+If you run into trouble installing the swirl course from Github, download the repository that contains the coourse from this https://github.com/Carlotadbm/Catching_online_language_swirl as a zip folder (Code > Download ZIP).
+Then, in RStudio set your working directory to the folder that contains the zip folder and run the following code:
+
+`library(swirl)`
+
+`install_course_zip("Catching_online_language_swirl-main.zip")`
+
 If you are unfamiliar with R, I absolutely recomment that you also try the preloaded cours "R Programming" course. Sometimes swirl doesn’t offer you the preloaded courses, maybe because it detected that you had installed another course and thinks you’re over them… I don’t know exactly why, but it happens. Anyway, you can easily install the R programming course from github too, with the following code:
 
 `install_course_github(
@@ -41,3 +49,4 @@ If you're also interested in learning how to perform data cleaning and transform
   "Tools_for_text_analysis")`
 
 Try it out… and enjoy!
+
