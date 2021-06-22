@@ -43,8 +43,9 @@ load("my_oauth.Rdata")
 #Example: 
 #coordinate box containing (part of) USA 
 coord <- "-124.65, 22.80, -66.64, 49.53"
-#Create a file called usa.json with the next 10 tweets 
-#geolocated within the coordinate box set in coord
+#Create a file called usa.json with the tweets geolocated within the coordinate box set in coord 
+#generated during the next 60 seconds
+#An argument like `tweets = 10` should retrieve the next 10 tweets, but it seems not to be really working
 filterStream(file.name = "usa.json", 
              locations = coord, 
              tweets = 10, 
@@ -53,7 +54,7 @@ filterStream(file.name = "usa.json",
 ##Search by language during a period of time in a given area
 #Example:
 #Create a file called english.json with the tweets generated in English
-#the next 60 seconds
+#during the next 60 seconds
 filterStream(file.name = "english.json", 
              language = "en",
              locations = coord,
@@ -62,10 +63,11 @@ filterStream(file.name = "english.json",
 
 ##Search by string and number of tweets
 #Example:
-#Create a file called literally.json with the next 10 tweets with the word "literally"
+#Create a file called literally.json with the tweets with the word "literally"
+#generated during the next 60 seconds
 filterStream(file.name = "literally.json", 
              track = "literally",
-             tweets = 10, 
+             timeout = 60,
              oauth = my_oauth)
 
 ##Parsing .json files and converting them into .csv files
