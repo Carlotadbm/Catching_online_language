@@ -48,7 +48,7 @@ coord <- "-124.65, 22.80, -66.64, 49.53"
 #An argument like `tweets = 10` should retrieve the next 10 tweets, but it seems not to be really working
 filterStream(file.name = "usa.json", 
              locations = coord, 
-             tweets = 10, 
+             timeout = 60,
              oauth = my_oauth)
 
 ##Search by language during a period of time in a given area
