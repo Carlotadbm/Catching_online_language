@@ -88,10 +88,16 @@ corpus_tumblr_words <- corpus_tumblr %>%
 stopwords_getlanguages("snowball") #check supported languages in the "snowball" package of library "stopwords"
 en_sw <- get_stopwords("en") #save English stopwords as en_sw
 corpus_tumblr_words %>%
-  anti_join(en_sw) #remove rows in corpus_tumblr_words whose word value matches word in en_sw
+  anti_join(en_sw) %>% #remove rows in corpus_tumblr_words whose word value matches word in en_sw
+  top_n(n = 20) %>% #select top 20
+  ggplot(aes(y = n , x = reorder(word,n))) +
+  geom_col(fill = "darkgreen") +
+  coord_flip() + 
+  theme_linedraw() + 
+  labs(title = "20 most common words in 'Did you know' Tumblr", x = "Words", y = "Absolute frequency") 
 
 ###N-grams
-## Find out the 20 most frequent 2-grams in the summary field
+## Find out the frequency 2-grams in the summary field
 corpus_tumblr %>% 
   unnest_tokens(ngrams, summary, token = "ngrams", n = 2, to_lower = TRUE) %>% #tokenize column summary (transformed to lower case) and save each separate 2-gram in a column called ngrams
   count(ngrams, sort = T) #create a sorted table that counts each unique ngram
