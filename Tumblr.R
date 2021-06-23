@@ -31,6 +31,10 @@ sig <- sign_oauth1.0(app,
 #Save your api_key
 api_key <- "your_api_key"
 
+## Remember to set your working directory!
+# Note: you can set the directory (folder) where you want to save these files 
+# by clicking in "Files" in the right bottom window, navigating to the desired folder
+# and once you're there, clicking in More > Set as working directory
 
 ##Download posts from a given Tumblr
 #It can only donwload 20 posts at a time, but you can set at what post it starts with the argument offset

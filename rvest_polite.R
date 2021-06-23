@@ -8,11 +8,18 @@ install.packages("tidyverse") #rvest library is included
 install.packages("polite")
 install.packages("xml2")
 install.packages("rvest")
+install.packages("utils")
 ##load library (must be done in every new session of RStudio)
 library(tidyverse)
 library(polite)
 library(xml2)
 library(rvest)
+library(utils)
+
+## Remember to set your working directory!
+# Note: you can set the directory (folder) where you want to save these files 
+# by clicking in "Files" in the right bottom window, navigating to the desired folder
+# and once you're there, clicking in More > Set as working directory
 
 
 #### Create a corpus of blog posts
@@ -53,7 +60,7 @@ session <- bow("http://www.semevadelalengua.es/", #perform the bow; adapt the us
 # Let's find the post's ids and save it as ids
 ids <- scrape(session) %>% #scrape the host website
   html_elements("article") %>% #find the html element `article`
-  html_attr("id") #retrieve is attribute `id`
+  html_attr("id") #retrieve its attribute `id`
 ids #now we have a character vector with the 10 different ids
 
 ids_clean <- ids %>% #because we don't need the string `post-`, we remove it from each element
@@ -86,4 +93,32 @@ content_lengua_tb #check it out
 ## Save it to a csv file called "content_lengua_tb.csv" and delimited by tabs
 write_delim(content_lengua_tb, "content_lengua_tb.csv", delim = "\t")
   
+
+### Scrape images:
+images_urls <- scrape(session) %>% #scrape the host website, save result as `images_urls`
+  html_elements("figure") %>% #find the html element `figure`
+  html_elements("img") %>% #find the html element `img` (which is within `figure`)
+  html_attr("src") #retrieve its attribute `src` which has the url of each image
+
+## Try function `download.file` from library `utils` to see how it works
+download.file(images_urls[1], "photo1.png", mode="wb") #first argument, the url
+#(we're using here the brackets to select the first element of the vector `image_urls`), 
+#second argument: name (extension included!) that you want the file to be saved with
+#third argument: mode="wb" specify that this is a binary file, I think this is 
+#especially important in Windows
+
+## Create a vector with the names with which we want to save the files on the bases of their urls
+destinations <- images_urls %>% #save it as `destinations`
+  str_remove_all( #remove both the beginning of every url and their extensions. Note that this is a regular expression (`\\d` means 'digit', for instance)
+    "(http://www.semevadelalengua.es/wp-content/uploads/20\\d\\d/\\d\\d/|\\.png|.jpe?g)") %>% 
+  str_c(., ".png") #paste at the end of the string we got the extensio ".png"
+
+## Bulk download images
+# The function walk2 applies a function to several elements that are paired:
+# This is what we need, we need to apply function `download.file` to each element
+# of our vectors `images_urls` and `destinations`. Look at its syntax:
+# the two vectors that we need, the function we'll use and its further arguments.
+
+walk2(images_urls, destinations, download.file, mode = "wb")
+
 

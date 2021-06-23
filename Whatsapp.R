@@ -3,8 +3,10 @@
 ###June 23rd 2021
 ###Convert a Whatsapp text chat into a table
 
-# Setting working directory: go to bottom right window, find folder, 
-# click on More > Set as working directory
+## Remember to set your working directory!
+# Note: you can set the directory (folder) where you want to save these files 
+# by clicking in "Files" in the right bottom window, navigating to the desired folder
+# and once you're there, clicking in More > Set as working directory
 
 ##install library (must be done only once)
 install.packages("tidyverse")
