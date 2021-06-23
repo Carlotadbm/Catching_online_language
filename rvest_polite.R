@@ -7,10 +7,12 @@
 install.packages("tidyverse") #rvest library is included
 install.packages("polite")
 install.packages("xml2")
+install.packages("rvest")
 ##load library (must be done in every new session of RStudio)
 library(tidyverse)
 library(polite)
 library(xml2)
+library(rvest)
 
 
 #### Create a corpus of blog posts

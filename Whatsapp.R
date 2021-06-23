@@ -3,6 +3,9 @@
 ###June 23rd 2021
 ###Convert a Whatsapp text chat into a table
 
+# Setting working directory: go to bottom right window, find folder, 
+# click on More > Set as working directory
+
 ##install library (must be done only once)
 install.packages("tidyverse")
 ##load library (must be done in every new session of RStudio)
