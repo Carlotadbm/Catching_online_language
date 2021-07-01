@@ -25,11 +25,11 @@ library(utils)
 #### Create a corpus of blog posts
 
 ###Explore the html structure
-# Let's frist explore the website we want to scrape read_html(), save it as semevadelalengua
+# Let's first explore the website we want to scrape with read_html(), save it as semevadelalengua
 semevadelalengua <- read_html("http://www.semevadelalengua.es/")
 semevadelalengua #check the object to see how it looks like
 
-# HTML structures is rather complicated. We can check its structure with html_structure(), but it's
+# HTML structure is rather complicated. We can check its structure with html_structure(), but it's
 # hard to read
 semevadelalengua %>% 
   html_structure()
@@ -46,12 +46,10 @@ semevadelalengua %>%
 # Because we're going to bulk download data, we'll use the polite package, which helps us scrape respecting
 # the wishes of the creator of the website.
 
-host <- "http://www.semevadelalengua.es/" #save the name of the website as host
 session <- bow("http://www.semevadelalengua.es/", #perform the bow; adapt the user_agent (which lets know 
                #the owner of the website who you are, what are you doing and how to contact you)
                #save the bow as session
-               user_agent = "Carlota de Benito Moreno - looking for linguistic data - https://www.spur.uzh.ch/en/aboutus/Personen/staff/carlotadebenito.html",
-               force = TRUE) 
+               user_agent = "Carlota de Benito Moreno - looking for linguistic data - https://www.spur.uzh.ch/en/aboutus/Personen/staff/carlotadebenito.html") 
 
 ## Discover the paths of each particular URL
 # Each of the posts we're interested in has it's own id. The URLs follow this format:
